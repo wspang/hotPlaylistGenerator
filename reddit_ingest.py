@@ -35,11 +35,11 @@ def parse_title(title):
         artist = title[: dash_loc]
         song = title[dash_loc+1 :]
 
-    # Now parse any crap off the end of a post
+    # Now parse any extra off the end of a post
     info_loc = title.rfind('(')
     # has -1 index if there is none. If it comes after dash, it is info.
     song = song if info_loc < dash_loc else title[(dash_loc+1) : (info_loc)]
-    # trim more crap off if in brackets
+    # trim more extra off if in brackets
     song = song if song.find('[') == -1 else song[: song.find('[')-1]
     
     # handle features on a track.
